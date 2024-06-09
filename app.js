@@ -30,4 +30,14 @@ console.log(libraryInstance);
 
 console.log(libraryInstance.books[0].name);
 
+let lotr2 = new Book("the two towers", "fancy");
+
+console.log(libraryInstance.books.length);
+console.log(Book.count);
+lotr2 = null;
+Book.removeBook();
+console.log(Book.count);
+
+console.log(libraryInstance.books[0].getBookName());
+
 // ./Users/Popeymate/Desktop/Projects/oct23-t3w5-classes/Media
