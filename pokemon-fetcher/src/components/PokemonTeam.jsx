@@ -3,6 +3,9 @@
 import React from "react";
 
 export default class PokemonTeam extends React.Component{
+    constructor(props){
+		super(props);
+	}
 
     // Get random Pokemon number
 
