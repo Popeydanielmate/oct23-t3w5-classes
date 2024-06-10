@@ -5,6 +5,10 @@ import React from "react";
 export default class PokemonTeam extends React.Component{
     constructor(props){
 		super(props);
+
+        this.state = {
+            PokemonTeam: []
+        }
 	}
 
     // Get random Pokemon number
@@ -27,8 +31,14 @@ export default class PokemonTeam extends React.Component{
 		});
         let data = await response.json();
 		console.log(data.name);
+
+        // Invalid way to update state:
+        // this.state.pokemonTeam.push(data)
+        // Valid way to update state:
+        this.setState({PokemonTeam: [...this.state.PokemonTeam, data]});
     }
 
+    
     // Store data from each request
 
     // Pass each data to PokemanCard components
@@ -37,6 +47,10 @@ export default class PokemonTeam extends React.Component{
         return (
             <div>
                 <h1>Pokemon data here</h1>
+
+                {this.state.pokemonTeam && this.state.pokemonTeam.map((pokemon, index) => {
+					return <h1 key={index}>{pokemon.name}</h1>
+				})}
             </div>
         )
     }
